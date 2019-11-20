@@ -1,92 +1,46 @@
 package com.company;
 
-import java.util.Objects;
-
 public class Product
 {
-    public enum Measurement
+    public Product(ProductInfo info, int count)
     {
-        Units,
-        Grams
+        add(count);
+        this.info = info;
     }
 
-    public Product(String name, Measurement measurement, int price)
+    public ProductInfo getInfo()
     {
-        validatePrice(price);
-        this.name = name;
-        this.measurement = measurement;
-        this.price = price;
-        this.discount = null;
-        this.adultsOnly = false;
+        return info;
     }
 
-    public Product(String name, Measurement measurement, int price, Discount discount)
+    public int getCount()
     {
-        validatePrice(price);
-        this.name = name;
-        this.measurement = measurement;
-        this.price = price;
-        this.discount = discount;
-        this.adultsOnly = false;
+        return count;
     }
 
-    public Product(String name, Measurement measurement, int price, boolean adultsOnly)
+    public void add(int count)
     {
-        validatePrice(price);
-        this.name = name;
-        this.measurement = measurement;
-        this.price = price;
-        this.discount = null;
-        this.adultsOnly = adultsOnly;
-    }
-
-    public Product(String name, Measurement measurement, int price, Discount discount, boolean adultsOnly)
-            throws IllegalArgumentException
-    {
-        validatePrice(price);
-        this.name = name;
-        this.measurement = measurement;
-        this.price = price;
-        this.discount = discount;
-        this.adultsOnly = adultsOnly;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public Measurement getMeasurement()
-    {
-        return measurement;
-    }
-
-    public int getPrice()
-    {
-        return price;
-    }
-
-    public Discount getDiscount()
-    {
-        return discount;
-    }
-
-    public boolean isAdultsOnly()
-    {
-        return adultsOnly;
-    }
-
-    private final String name;
-    private final Measurement measurement;
-    private final int price;
-    private final Discount discount;
-    private final boolean adultsOnly;
-
-    private void validatePrice(int price)
-    {
-        if (price <= 0)
+        if (count < 0)
         {
-            throw new IllegalArgumentException("The price must be greater than zero");
+            throw new IllegalArgumentException("The number of products can not be negative");
         }
+        this.count += count;
     }
+
+    public void remove(int count)
+    {
+        if (count < 0 || this.count - count < 0)
+        {
+            throw new IllegalArgumentException("The number of products can not be negative");
+        }
+        this.count -= count;
+    }
+
+    public int getTotalPrice()
+    {
+        return info.getPrice() * count;
+    }
+
+    private final ProductInfo info;
+    private int count = 0;
 }
