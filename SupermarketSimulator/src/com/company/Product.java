@@ -41,6 +41,12 @@ public class Product
         return info.getPrice() * count;
     }
 
+    public void log()
+    {
+        info.log();
+        System.out.println("  Count: " + count);
+    }
+
     private final ProductInfo info;
     private int count = 0;
 }

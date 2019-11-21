@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Objects;
-
 public class ProductInfo
 {
     public enum Measurement
@@ -76,13 +74,27 @@ public class ProductInfo
         return adultsOnly;
     }
 
+    public void log()
+    {
+        System.out.println(name + ":");
+        System.out.println("  Price: " + price + " per " + measurement.name().toLowerCase());
+        if (discount.getSize() != 0)
+        {
+            System.out.println("  Discount: " + discount.getSize());
+        }
+        if (isAdultsOnly())
+        {
+            System.out.println("  Is adults only");
+        }
+    }
+
     private final String name;
     private final Measurement measurement;
     private final int price;
     private final Discount discount;
     private final boolean adultsOnly;
 
-    private void validatePrice(int price)
+    private static void validatePrice(int price)
     {
         if (price <= 0)
         {

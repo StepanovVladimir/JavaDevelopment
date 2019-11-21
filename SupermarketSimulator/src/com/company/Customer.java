@@ -1,5 +1,9 @@
 package com.company;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Customer
 {
     public enum Category
@@ -9,14 +13,20 @@ public class Customer
         Retired
     }
 
-    Customer(Category category, int cashAmount, int cardMoneyAmount, int bonusesAmount)
+    Customer(Category category, int cashAmount, int cardMoneyAmount, int bonusesAmount,
+             ArrayList<Product> supermarketProducts)
     {
         this.category = category;
+
         this.cashAmount = cashAmount;
         this.cardMoneyAmount = cardMoneyAmount;
         this.bonusesAmount = bonusesAmount;
-        this.remainingMoneyAmount = getTotalMoneyAmount();
-        this.basket = new Basket();
+        remainingMoneyAmount = getTotalMoneyAmount();
+
+        basket = new Basket();
+        this.supermarketProducts = supermarketProducts;
+
+        number = ++count;
     }
 
     public Category getCategory()
@@ -29,26 +39,33 @@ public class Customer
         return (Basket)basket.clone();
     }
 
-    public void putInBasket(Product product)
+    public void putInBasket(int index, int count, Date time)
     {
+        Product product = supermarketProducts.get(index);
+
         if (category == Category.Child && product.getInfo().isAdultsOnly())
         {
             throw new IllegalArgumentException("The child can not take the product for adults only");
         }
-        if (remainingMoneyAmount < product.getTotalPrice())
+        if (product.getCount() < count)
+        {
+            throw new IllegalArgumentException("There is no such quantity of product");
+        }
+
+        int price = getProductPrice(product);
+
+        if (remainingMoneyAmount < price)
         {
             throw new IllegalArgumentException("Customer will not have enough money for this product");
         }
 
-        int price = product.getTotalPrice() * product.getTotalPrice();
-        if (category == Category.Retired)
-        {
-            price *= (100 - product.getInfo().getDiscount().getSize());
-            price /= 100;
-        }
-
+        product.remove(count);
         remainingMoneyAmount -= price;
-        basket.add(product);
+
+        basket.add(new Product(product.getInfo(), count));
+
+        System.out.print(format.format(time) + " Customer '" + getName() + "' picked up " + count + " ");
+        System.out.println(product.getInfo().getMeasurement().name().toLowerCase() + " of " + product.getInfo().getName());
     }
 
     public int getCashAmount()
@@ -76,10 +93,41 @@ public class Customer
         return cashAmount + cardMoneyAmount + bonusesAmount;
     }
 
+    public String getName()
+    {
+        return "customer#" + number;
+    }
+
+    public void log()
+    {
+        System.out.println("Category: " + category.name());
+        System.out.print("Cash amount: " + cashAmount + "; Card money amount: " + cardMoneyAmount);
+        System.out.println("; Bonuses amount: " + bonusesAmount);
+    }
+
+    private static int count = 0;
+    private static SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+
+    private int number;
     private final Category category;
+
     private int cashAmount;
     private int cardMoneyAmount;
     private int bonusesAmount;
     private int remainingMoneyAmount;
+
     private Basket basket;
+
+    private ArrayList<Product> supermarketProducts;
+
+    private int getProductPrice(Product product)
+    {
+        int price = product.getTotalPrice();
+        if (category == Category.Retired)
+        {
+            price *= (100 - product.getInfo().getDiscount().getSize());
+            price /= 100;
+        }
+        return price;
+    }
 }
