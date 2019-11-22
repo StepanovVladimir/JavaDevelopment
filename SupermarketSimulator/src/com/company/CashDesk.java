@@ -1,6 +1,8 @@
 package com.company;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
+import java.util.Date;
 import java.util.Queue;
 
 public class CashDesk
@@ -20,7 +22,7 @@ public class CashDesk
         customers.add(customer);
     }
 
-    public Bill serveCustomer()
+    public Bill serveCustomer(Date time)
     {
         if (customers.isEmpty())
         {
@@ -30,8 +32,12 @@ public class CashDesk
         Customer customer = customers.remove();
         int totalPrice = customer.getTotalMoneyAmount() - customer.getRemainingMoneyAmount();
 
+        System.out.print(format.format(time) + " Customer '" + customer.getName());
+        System.out.println("' at the cash desk, amount to pay: " + totalPrice);
+
         return new Bill(totalPrice);
     }
 
+    private static SimpleDateFormat format = new SimpleDateFormat("HH:mm");
     private Queue<Customer> customers;
 }

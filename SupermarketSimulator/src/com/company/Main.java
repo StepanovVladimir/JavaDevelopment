@@ -26,5 +26,11 @@ public class Main
         {
             System.out.println(exc.getMessage());
         }
+
+        CashDesk cashDesk = supermarket.getCashDesk();
+        cashDesk.addCustomer(supermarket.getCustomer(0));
+        Bill bill = cashDesk.serveCustomer(time);
+        supermarket.getCustomer(0).payBill(bill, time);
+        supermarket.removeCustomer(0);
     }
 }

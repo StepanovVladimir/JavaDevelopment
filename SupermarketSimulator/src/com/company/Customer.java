@@ -52,7 +52,7 @@ public class Customer
             throw new IllegalArgumentException("There is no such quantity of product");
         }
 
-        int price = getProductPrice(product);
+        int price = getProductPrice(product.getInfo(), count);
 
         if (remainingMoneyAmount < price)
         {
@@ -66,6 +66,31 @@ public class Customer
 
         System.out.print(format.format(time) + " Customer '" + getName() + "' picked up " + count + " ");
         System.out.println(product.getInfo().getMeasurement().name().toLowerCase() + " of " + product.getInfo().getName());
+    }
+
+    public void payBill(Bill bill, Date time)
+    {
+        int price = bill.getPrice();
+
+        System.out.print(format.format(time) + " Customer paid");
+
+        if (bonusesAmount > 0)
+        {
+            int paidBonuses = Math.min(price, bonusesAmount);
+            System.out.print(" " + paidBonuses + " by " + PaymentMethod.Bonuses.name().toLowerCase());
+            price -= paidBonuses;
+        }
+        if (price > 0 && cardMoneyAmount > 0)
+        {
+            int paidCard = Math.min(price, cardMoneyAmount);
+            System.out.print(" " + paidCard + " by " + PaymentMethod.Card.name().toLowerCase());
+            price -= paidCard;
+        }
+        if (price > 0)
+        {
+            System.out.print(" " + price + " by " + PaymentMethod.Cash.name().toLowerCase());
+        }
+        System.out.println();
     }
 
     public int getCashAmount()
@@ -120,12 +145,12 @@ public class Customer
 
     private ArrayList<Product> supermarketProducts;
 
-    private int getProductPrice(Product product)
+    private int getProductPrice(ProductInfo productInfo, int count)
     {
-        int price = product.getTotalPrice();
+        int price = productInfo.getPrice() * count;
         if (category == Category.Retired)
         {
-            price *= (100 - product.getInfo().getDiscount().getSize());
+            price *= (100 - productInfo.getDiscount().getSize());
             price /= 100;
         }
         return price;
