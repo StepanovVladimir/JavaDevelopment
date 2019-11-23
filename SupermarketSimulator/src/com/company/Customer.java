@@ -72,8 +72,13 @@ public class Customer
     {
         int price = bill.getPrice();
 
-        System.out.print(format.format(time) + " Customer paid");
+        if (price == 0)
+        {
+            System.out.println("Customer did not pay");
+            return;
+        }
 
+        System.out.print(format.format(time) + " Customer paid");
         if (bonusesAmount > 0)
         {
             int paidBonuses = Math.min(price, bonusesAmount);

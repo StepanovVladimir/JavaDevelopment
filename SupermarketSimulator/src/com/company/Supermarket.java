@@ -80,6 +80,7 @@ public class Supermarket
 
         isOpened = false;
         System.out.println(format.format(time) + " Supermarket is closed");
+        report.log();
     }
 
     private static SimpleDateFormat format = new SimpleDateFormat("HH:mm");
@@ -87,5 +88,6 @@ public class Supermarket
     private boolean isOpened;
     private ArrayList<Product> products = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
-    private CashDesk cashDesk = new CashDesk();
+    private Report report = new Report();
+    private CashDesk cashDesk = new CashDesk(report);
 }
