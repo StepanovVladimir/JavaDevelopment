@@ -4,16 +4,18 @@ import java.io.IOException;
 
 public class Spreadsheet
 {
-    public void setValue(String cellName, double value) throws IOException
-    {
-        Indexes indexes = getIndexes(cellName);
-        matrix[indexes.row][indexes.column] = new NumberValue(value);
-    }
-
     public void setValue(String cellName, String value) throws IOException
     {
         Indexes indexes = getIndexes(cellName);
-        matrix[indexes.row][indexes.column] = new StringValue(value);
+        try
+        {
+            double num = Double.parseDouble(value);
+            matrix[indexes.row][indexes.column] = new NumberValue(num);
+        }
+        catch (NumberFormatException exc)
+        {
+            matrix[indexes.row][indexes.column] = new StringValue(value);
+        }
     }
 
     public void setReference(String cellName, String reference) throws IOException
@@ -31,12 +33,12 @@ public class Spreadsheet
     public void print()
     {
         System.out.printf("%-5s", "");
-        for (int i = 0; i < 30; ++i)
+        for (int i = 0; i < MATRIX_SIZE; ++i)
         {
-            System.out.printf("%-10s", indexToStr(i));
+            System.out.printf("%-10s", indexToCellName(i));
         }
         System.out.println();
-        for (int i = 0; i < 30; ++i)
+        for (int i = 0; i < MATRIX_SIZE; ++i)
         {
             System.out.printf("%-5s", i + 1);
             for (int j = 0; j < 30; ++j)
@@ -55,9 +57,10 @@ public class Spreadsheet
         }
     }
 
+    private static final int MATRIX_SIZE = 30;
     private static final String INVALID_NAME_OF_CELL = "Invalid name of cell";
 
-    private IValue[][] matrix = new IValue[30][30];
+    private IValue[][] matrix = new IValue[MATRIX_SIZE][MATRIX_SIZE];
 
     static Indexes getIndexes(String cellName) throws IOException
     {
@@ -91,7 +94,7 @@ public class Spreadsheet
         }
 
         String column = cellName.substring(0, index);
-        int columnIndex = strToIndex(column);
+        int columnIndex = cellNameToIndex(column);
         int rowIndex;
         try
         {
@@ -104,7 +107,7 @@ public class Spreadsheet
         return new Indexes(columnIndex, rowIndex);
     }
 
-    private static int strToIndex(String str)
+    private static int cellNameToIndex(String str)
     {
         int index = 0;
         for (int i = 0; i < str.length(); ++i)
@@ -122,7 +125,7 @@ public class Spreadsheet
         return index;
     }
 
-    private static String indexToStr(int index)
+    private static String indexToCellName(int index)
     {
         StringBuilder builder = new StringBuilder();
         do

@@ -64,7 +64,7 @@ class FormulaValue implements IValue
 
     private static Operation readOperation(InputStreamReader reader) throws IOException
     {
-        char ch = (char)reader.read();
+        char ch = readFirstChar(reader);
         switch (ch)
         {
             case '+':
@@ -86,13 +86,7 @@ class FormulaValue implements IValue
 
     private static IValue readFormulaMember(InputStreamReader reader, IValue[][] matrix) throws IOException
     {
-        char ch;
-        do
-        {
-            ch = (char)reader.read();
-        }
-        while (ch == ' ');
-
+        char ch = readFirstChar(reader);
         if (ch == '(')
         {
             return readSubFormula(reader, matrix);
@@ -140,7 +134,7 @@ class FormulaValue implements IValue
                 builder.append(ch);
             }
         }
-        
+
         String str = builder.toString();
         try
         {
@@ -151,6 +145,17 @@ class FormulaValue implements IValue
         {
             return new ReferenceValue(str, matrix);
         }
+    }
+
+    private static char readFirstChar(InputStreamReader reader) throws IOException
+    {
+        char ch;
+        do
+        {
+            ch = (char)reader.read();
+        }
+        while (ch == ' ');
+        return ch;
     }
 
     private static Double calculateFormula(Operation operation, double num1, double num2)

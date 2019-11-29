@@ -3,30 +3,63 @@ package com.company;
 import com.company.spreadsheet.*;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args)
     {
         Spreadsheet spreadsheet = new Spreadsheet();
-        try
+        Scanner scanner = new Scanner(System.in);
+        runSpreadsheet(spreadsheet, scanner);
+    }
+
+    private static void runSpreadsheet(Spreadsheet spreadsheet, Scanner scanner)
+    {
+        while (scanner.hasNext())
         {
-            spreadsheet.setFormula("E1", "*(+ A1 5) A1");
-            spreadsheet.setFormula("E2", "+ C1 E1");
-            spreadsheet.setReference("D1", "C1");
-            spreadsheet.setReference("D2", "B2");
-            spreadsheet.setValue("A1", 12);
-            spreadsheet.setValue("B1", 2.34);
-            spreadsheet.setValue("C1", "hello");
-            spreadsheet.setValue("A2", 2.3432);
-            spreadsheet.setValue("B2", 2.347);
-            spreadsheet.setValue("C2", 22377);
-            spreadsheet.setValue("G5", 17.1756);
+            try
+            {
+                String command = scanner.next();
+                String cellName;
+                switch (command)
+                {
+                    case "set":
+                        cellName = scanner.next();
+                        String value = scanner.next();
+                        spreadsheet.setValue(cellName, value);
+                        System.out.println("OK");
+                        break;
+
+                    case "setreference":
+                        cellName = scanner.next();
+                        String reference = scanner.next();
+                        spreadsheet.setReference(cellName, reference);
+                        System.out.println("OK");
+                        break;
+
+                    case "setformula":
+                        cellName = scanner.next();
+                        String formula = scanner.nextLine();
+                        spreadsheet.setFormula(cellName, formula);
+                        System.out.println("OK");
+                        break;
+
+                    case "display":
+                        spreadsheet.print();
+                        break;
+
+                    case "exit":
+                        return;
+
+                    default:
+                        System.out.println("Nonexistent command");
+                }
+            }
+            catch (IOException exc)
+            {
+                System.out.println(exc.getMessage());
+            }
         }
-        catch (IOException exc)
-        {
-            System.out.println(exc.getMessage());
-        }
-        spreadsheet.print();
     }
 }
