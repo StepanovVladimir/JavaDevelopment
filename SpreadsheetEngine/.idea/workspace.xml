@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eefbd11-5dac-4e3d-b87a-af8d61268b5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/IValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/NumberValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Spreadsheet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/StringValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SupermarketSimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SupermarketSimulator/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/IValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/Indexes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/IValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/NumberValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/NumberValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Spreadsheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/StringValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/StringValue.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,62 +26,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/company/Spreadsheet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2074">
-              <caret line="122" column="11" selection-start-line="122" selection-start-column="11" selection-end-line="122" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/StringValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="20" selection-start-column="20" selection-end-column="20" />
+            <state relative-caret-position="255">
+              <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
               <folding>
-                <element signature="e#88#89#0" expanded="true" />
-                <element signature="e#122#123#0" expanded="true" />
-                <element signature="e#225#226#0" expanded="true" />
-                <element signature="e#275#276#0" expanded="true" />
-                <element signature="e#302#303#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/NumberValue.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-306">
+              <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Indexes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="81" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="170" column="11" lean-forward="true" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/StringValue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+              <folding>
+                <element signature="e#113#114#0" expanded="true" />
+                <element signature="e#147#148#0" expanded="true" />
+                <element signature="e#198#199#0" expanded="true" />
+                <element signature="e#225#226#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/IValue.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding>
-                <element signature="e#97#98#0" expanded="true" />
-                <element signature="e#131#132#0" expanded="true" />
-                <element signature="e#187#188#0" expanded="true" />
-                <element signature="e#215#216#0" expanded="true" />
-                <element signature="e#271#272#0" expanded="true" />
-                <element signature="e#315#316#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/IValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -87,6 +108,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -100,19 +122,21 @@
         <option value="$PROJECT_DIR$/src/com/company/ICell.java" />
         <option value="$PROJECT_DIR$/src/com/company/NumberCell.java" />
         <option value="$PROJECT_DIR$/src/com/company/StringCell.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Spreadsheet.java" />
-        <option value="$PROJECT_DIR$/src/com/company/IValue.java" />
         <option value="$PROJECT_DIR$/src/com/company/NumberValue.java" />
         <option value="$PROJECT_DIR$/src/com/company/StringValue.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/encodings.xml" />
+        <option value="$PROJECT_DIR$/src/com/company/IValue.java" />
+        <option value="$PROJECT_DIR$/src/com/company/ReferenceValue.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Spreadsheet.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Spreadsheet/Spreadsheet.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/StringValue.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/NumberValue.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/IValue.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/Indexes.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/Operation.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
   </component>
@@ -126,6 +150,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,14 +171,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SpreadsheetEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpreadsheetEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="spreadsheet" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -196,10 +230,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1067" height="1040" extended-state="0" />
+    <frame x="0" y="0" width="1067" height="1040" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25422046" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17874876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -208,7 +242,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32929516" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32929516" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39977974" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -229,24 +263,11 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="1957" column="18" selection-start-line="1957" selection-start-column="18" selection-end-line="1957" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/IValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/NumberValue.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/reference.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/NumberValue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#97#98#0" expanded="true" />
             <element signature="e#131#132#0" expanded="true" />
@@ -258,31 +279,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/StringValue.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        <state relative-caret-position="102">
+          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/util/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="1830" column="6" lean-forward="true" selection-start-line="1830" selection-start-column="6" selection-end-line="1830" selection-end-column="6" />
           <folding>
-            <element signature="e#88#89#0" expanded="true" />
-            <element signature="e#122#123#0" expanded="true" />
-            <element signature="e#225#226#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#26907#26908#0" expanded="true" />
+            <element signature="e#26973#26974#0" expanded="true" />
+            <element signature="e#68265#68266#0" expanded="true" />
+            <element signature="e#68311#68312#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/io/InputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="613" column="22" selection-start-line="613" selection-start-column="22" selection-end-line="613" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/IValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/StringValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding>
+            <element signature="e#113#114#0" expanded="true" />
+            <element signature="e#147#148#0" expanded="true" />
+            <element signature="e#198#199#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Indexes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/io/InputStreamReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="183" column="45" lean-forward="true" selection-start-line="183" selection-start-column="45" selection-end-line="183" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="81" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="2992" column="25" selection-start-line="2992" selection-start-column="25" selection-end-line="2992" selection-end-column="25" />
+          <folding>
+            <element signature="e#117893#117894#0" expanded="true" />
+            <element signature="e#117955#117956#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_221/src.zip!/java/lang/Double.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="536" column="25" selection-start-line="536" selection-start-column="25" selection-end-line="536" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="170" column="11" lean-forward="true" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Spreadsheet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="122" column="11" selection-start-line="122" selection-start-column="11" selection-end-line="122" selection-end-column="11" />
+        <state relative-caret-position="255">
+          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

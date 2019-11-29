@@ -1,17 +1,31 @@
-package com.company;
+package com.company.spreadsheet;
+
+import java.io.IOException;
 
 public class Spreadsheet
 {
-    public void setValue(String cellName, double value)
+    public void setValue(String cellName, double value) throws IOException
     {
         Indexes indexes = getIndexes(cellName);
         matrix[indexes.row][indexes.column] = new NumberValue(value);
     }
 
-    public void setValue(String cellName, String value)
+    public void setValue(String cellName, String value) throws IOException
     {
         Indexes indexes = getIndexes(cellName);
         matrix[indexes.row][indexes.column] = new StringValue(value);
+    }
+
+    public void setReference(String cellName, String reference) throws IOException
+    {
+        Indexes indexes = getIndexes(cellName);
+        matrix[indexes.row][indexes.column] = new ReferenceValue(reference, matrix);
+    }
+
+    public void setFormula(String cellName, String formula) throws IOException
+    {
+        Indexes indexes = getIndexes(cellName);
+        matrix[indexes.row][indexes.column] = new FormulaValue(formula, matrix);
     }
 
     public void print()
@@ -28,9 +42,9 @@ public class Spreadsheet
             for (int j = 0; j < 30; ++j)
             {
                 IValue cell = matrix[i][j];
-                if (cell != null && cell.getStringValue() != null)
+                if (cell != null && cell.getString() != null)
                 {
-                    System.out.printf("%-10s", cell.getStringValue());
+                    System.out.printf("%-10s", cell.getString());
                 }
                 else
                 {
@@ -43,25 +57,13 @@ public class Spreadsheet
 
     private static final String INVALID_NAME_OF_CELL = "Invalid name of cell";
 
-    private static class Indexes
-    {
-        Indexes(int column, int row)
-        {
-            this.column = column;
-            this.row = row;
-        }
-
-        public int column;
-        public int row;
-    }
-
     private IValue[][] matrix = new IValue[30][30];
 
-    private static Indexes getIndexes(String cellName)
+    static Indexes getIndexes(String cellName) throws IOException
     {
         if (cellName.length() < 2)
         {
-            throw new IllegalArgumentException(INVALID_NAME_OF_CELL);
+            throw new IOException(INVALID_NAME_OF_CELL);
         }
 
         int index = 0;
@@ -72,20 +74,20 @@ public class Spreadsheet
             {
                 if (i == 0)
                 {
-                    throw new IllegalArgumentException(INVALID_NAME_OF_CELL);
+                    throw new IOException(INVALID_NAME_OF_CELL);
                 }
                 index = i;
                 break;
             }
             else if (ch < 'A' || ch > 'Z')
             {
-                throw new IllegalArgumentException(INVALID_NAME_OF_CELL);
+                throw new IOException(INVALID_NAME_OF_CELL);
             }
         }
 
         if (index == 0)
         {
-            throw new IllegalArgumentException(INVALID_NAME_OF_CELL);
+            throw new IOException(INVALID_NAME_OF_CELL);
         }
 
         String column = cellName.substring(0, index);
@@ -97,7 +99,7 @@ public class Spreadsheet
         }
         catch (NumberFormatException exc)
         {
-            throw new IllegalArgumentException(INVALID_NAME_OF_CELL);
+            throw new IOException(INVALID_NAME_OF_CELL);
         }
         return new Indexes(columnIndex, rowIndex);
     }
@@ -123,7 +125,8 @@ public class Spreadsheet
     private static String indexToStr(int index)
     {
         StringBuilder builder = new StringBuilder();
-        do {
+        do
+        {
             if (builder.length() == 0)
             {
                 int i = index % 26;

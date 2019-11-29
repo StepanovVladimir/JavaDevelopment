@@ -1,6 +1,6 @@
-package com.company;
+package com.company.spreadsheet;
 
-public class NumberValue implements IValue
+class NumberValue implements IValue
 {
     public NumberValue(double value)
     {
@@ -8,13 +8,13 @@ public class NumberValue implements IValue
     }
 
     @Override
-    public Double getNumberValue()
+    public Double getNumber()
     {
         return value;
     }
 
     @Override
-    public String getStringValue()
+    public String getString()
     {
         return String.valueOf(value);
     }
