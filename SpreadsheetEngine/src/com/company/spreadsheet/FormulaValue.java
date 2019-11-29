@@ -1,10 +1,11 @@
 package com.company.spreadsheet;
 
+import sun.nio.ch.IOStatus;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 class FormulaValue implements IValue
 {
@@ -12,137 +13,10 @@ class FormulaValue implements IValue
     {
         InputStream stream = new ByteArrayInputStream(formula.getBytes());
         InputStreamReader reader = new InputStreamReader(stream);
-        //Scanner scanner = new Scanner(formula);
 
-        char ch = (char)reader.read();
-        switch (ch)
-        {
-            case '+':
-                operation = Operation.Add;
-                break;
-
-            case '-':
-                operation = Operation.Sub;
-                break;
-
-            case '*':
-                operation = Operation.Mul;
-                break;
-
-            case '/':
-                operation = Operation.Div;
-                break;
-
-            default:
-                throw new IOException("Invalid formula");
-        }
-
-        do
-        {
-            ch = (char)reader.read();
-        }
-        while (ch == ' ');
-
-        if (ch != '(')
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.append(ch);
-            while (ch != ' ' && reader.ready())
-            {
-                ch = (char)reader.read();
-                if (ch != ' ')
-                {
-                    builder.append(ch);
-                }
-            }
-            String str = builder.toString();
-            try
-            {
-                double num = Double.parseDouble(str);
-                first = new NumberValue(num);
-            }
-            catch (NumberFormatException exc)
-            {
-                first = new ReferenceValue(str, matrix);
-            }
-        }
-        else
-        {
-            int count = 1;
-            StringBuilder builder = new StringBuilder();
-            while (count > 0)
-            {
-                ch = (char)reader.read();
-                if (ch == '(')
-                {
-                    ++count;
-                }
-                else if (ch == ')')
-                {
-                    --count;
-                }
-                if (count > 0)
-                {
-                    builder.append(ch);
-                }
-            }
-            String str = builder.toString();
-            first = new FormulaValue(str, matrix);
-        }
-
-
-        do
-        {
-            ch = (char)reader.read();
-        }
-        while (ch == ' ');
-
-        if (ch != '(')
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.append(ch);
-            while (ch != ' ' && reader.ready())
-            {
-                ch = (char)reader.read();
-                if (ch != ' ')
-                {
-                    builder.append(ch);
-                }
-            }
-            String str = builder.toString();
-            try
-            {
-                double num = Double.parseDouble(str);
-                second = new NumberValue(num);
-            }
-            catch (NumberFormatException exc)
-            {
-                second = new ReferenceValue(str, matrix);
-            }
-        }
-        else
-        {
-            int count = 1;
-            StringBuilder builder = new StringBuilder();
-            while (count > 0)
-            {
-                ch = (char)reader.read();
-                if (ch == '(')
-                {
-                    ++count;
-                }
-                else if (ch == ')')
-                {
-                    --count;
-                }
-                if (count > 0)
-                {
-                    builder.append(ch);
-                }
-            }
-            String str = builder.toString();
-            second = new FormulaValue(str, matrix);
-        }
+        operation = readOperation(reader);
+        first = readFormulaMember(reader, matrix);
+        second = readFormulaMember(reader, matrix);
     }
 
     @Override
@@ -155,7 +29,7 @@ class FormulaValue implements IValue
             return null;
         }
 
-        return calculateFormula(num1, num2);
+        return calculateFormula(operation, num1, num2);
     }
 
     @Override
@@ -172,7 +46,7 @@ class FormulaValue implements IValue
         {
             Double num1 = Double.parseDouble(str1);
             Double num2 = Double.parseDouble(str2);
-            return String.valueOf(calculateFormula(num1, num2));
+            return String.valueOf(calculateFormula(operation, num1, num2));
         }
         catch (NumberFormatException exc)
         {
@@ -184,11 +58,102 @@ class FormulaValue implements IValue
         }
     }
 
+    private Operation operation;
     private IValue first;
     private IValue second;
-    private Operation operation;
 
-    private Double calculateFormula(double num1, double num2)
+    private static Operation readOperation(InputStreamReader reader) throws IOException
+    {
+        char ch = (char)reader.read();
+        switch (ch)
+        {
+            case '+':
+                return Operation.Add;
+
+            case '-':
+                return Operation.Sub;
+
+            case '*':
+                return Operation.Mul;
+
+            case '/':
+                return Operation.Div;
+
+            default:
+                throw new IOException("Invalid formula");
+        }
+    }
+
+    private static IValue readFormulaMember(InputStreamReader reader, IValue[][] matrix) throws IOException
+    {
+        char ch;
+        do
+        {
+            ch = (char)reader.read();
+        }
+        while (ch == ' ');
+
+        if (ch == '(')
+        {
+            return readSubFormula(reader, matrix);
+        }
+        else
+        {
+            return readSimpleMember(ch, reader, matrix);
+        }
+    }
+
+    private static FormulaValue readSubFormula(InputStreamReader reader, IValue[][] matrix) throws IOException
+    {
+        int count = 1;
+        StringBuilder builder = new StringBuilder();
+        while (count > 0)
+        {
+            char ch = (char)reader.read();
+            if (ch == '(')
+            {
+                ++count;
+            }
+            else if (ch == ')')
+            {
+                --count;
+            }
+            if (count > 0)
+            {
+                builder.append(ch);
+            }
+        }
+        String str = builder.toString();
+        return new FormulaValue(str, matrix);
+    }
+
+    private static IValue readSimpleMember(char ch, InputStreamReader reader, IValue[][] matrix) throws IOException
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append(ch);
+
+        while (ch != ' ' && reader.ready())
+        {
+            ch = (char)reader.read();
+            if (ch != ' ')
+            {
+                builder.append(ch);
+            }
+        }
+        
+        String str = builder.toString();
+        try
+        {
+            double num = Double.parseDouble(str);
+            return new NumberValue(num);
+        }
+        catch (NumberFormatException exc)
+        {
+            return new ReferenceValue(str, matrix);
+        }
+    }
+
+    private static Double calculateFormula(Operation operation, double num1, double num2)
     {
         switch (operation)
         {

@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eefbd11-5dac-4e3d-b87a-af8d61268b5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/IValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/Indexes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/Operation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/IValue.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/NumberValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/NumberValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Spreadsheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/StringValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/StringValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="170">
+              <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
+            <state relative-caret-position="-969">
               <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
             </state>
           </provider>
@@ -65,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="170" column="11" lean-forward="true" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="11" />
+            <state relative-caret-position="2057">
+              <caret line="142" column="8" lean-forward="true" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,8 +127,8 @@
         <option value="$PROJECT_DIR$/src/com/company/spreadsheet/Operation.java" />
         <option value="$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java" />
         <option value="$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java" />
-        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java" />
       </list>
     </option>
   </component>
@@ -230,7 +222,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1067" height="1040" extended-state="1" />
+    <frame x="0" y="0" width="1067" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17874876" />
@@ -320,19 +312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/StringValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#113#114#0" expanded="true" />
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#225#226#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Indexes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -344,13 +323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="183" column="45" lean-forward="true" selection-start-line="183" selection-start-column="45" selection-end-line="183" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="81" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
         </state>
       </provider>
     </entry>
@@ -372,10 +344,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/StringValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="170" column="11" lean-forward="true" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="11" />
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding>
+            <element signature="e#113#114#0" expanded="true" />
+            <element signature="e#147#148#0" expanded="true" />
+            <element signature="e#198#199#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/ReferenceValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="81" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -384,15 +376,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/Spreadsheet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
+        <state relative-caret-position="-969">
           <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/spreadsheet/FormulaValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="2057">
+          <caret line="142" column="8" lean-forward="true" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
