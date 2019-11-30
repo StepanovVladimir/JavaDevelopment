@@ -6,13 +6,13 @@ import java.util.Random;
 
 public class Main
 {
-    private static final int hour = 1000 * 60 * 60;
+    private static final int HOUR = 1000 * 60 * 60;
 
     public static void main(String[] args)
     {
         Supermarket supermarket = new Supermarket();
         Random random = new Random();
-        Date time = new Date(hour * 3);
+        Date time = new Date(HOUR * 3);
 
         initProducts(supermarket, random, time);
         runSupermarket(supermarket, random, time);
@@ -26,19 +26,19 @@ public class Main
         products.add(new Product(new ProductInfo("butter", ProductInfo.Measurement.Grams, 10, new Discount(20)), random.nextInt(1000)));
         products.add(new Product(new ProductInfo("cigarettes", ProductInfo.Measurement.Units, 40, true), random.nextInt(100)));
 
-        addTime(time, random.nextInt(hour));
+        addTime(time, random.nextInt(HOUR));
         supermarket.logProducts(time);
     }
 
     private static void runSupermarket(Supermarket supermarket, Random random, Date time)
     {
-        addTime(time, random.nextInt(hour));
+        addTime(time, random.nextInt(HOUR));
         supermarket.open(time);
         CashDesk cashDesk = supermarket.getCashDesk();
-        while (time.getTime() < hour * 15 || supermarket.getCustomersCount() > 0 || cashDesk.getCustomersCount() > 0)
+        while (time.getTime() < HOUR * 15 || supermarket.getCustomersCount() > 0 || cashDesk.getCustomersCount() > 0)
         {
             int actionNumber;
-            if (time.getTime() < hour * 14)
+            if (time.getTime() < HOUR * 14)
             {
                 actionNumber = random.nextInt(4);
             }
@@ -72,7 +72,7 @@ public class Main
 
     private static void addCustomerToSupermarket(Supermarket supermarket, Random random, Date time)
     {
-        addTime(time, random.nextInt(hour));
+        addTime(time, random.nextInt(HOUR));
         ArrayList<Product> products = supermarket.getProducts();
 
         int category = random.nextInt(3);
@@ -90,7 +90,7 @@ public class Main
         {
             if (supermarket.getCustomersCount() > 0)
             {
-                addTime(time, random.nextInt(hour));
+                addTime(time, random.nextInt(HOUR));
                 ArrayList<Product> products = supermarket.getProducts();
 
                 int customerIndex = random.nextInt(supermarket.getCustomersCount());
@@ -110,7 +110,7 @@ public class Main
     {
         if (supermarket.getCustomersCount() > 0)
         {
-            addTime(time, random.nextInt(hour));
+            addTime(time, random.nextInt(HOUR));
             CashDesk cashDesk = supermarket.getCashDesk();
             int customerIndex = random.nextInt(supermarket.getCustomersCount());
             cashDesk.addCustomer(supermarket.getCustomer(customerIndex));
@@ -123,7 +123,7 @@ public class Main
         CashDesk cashDesk = supermarket.getCashDesk();
         if (cashDesk.getCustomersCount() > 0)
         {
-            addTime(time, random.nextInt(hour));
+            addTime(time, random.nextInt(HOUR));
             Bill bill = cashDesk.serveCustomer(time);
             cashDesk.getCustomer().payBill(bill, time);
             cashDesk.removeCustomer();
