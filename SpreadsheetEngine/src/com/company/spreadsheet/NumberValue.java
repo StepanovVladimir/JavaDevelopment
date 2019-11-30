@@ -2,7 +2,7 @@ package com.company.spreadsheet;
 
 class NumberValue implements IValue
 {
-    public NumberValue(double value)
+    NumberValue(double value)
     {
         this.value = value;
     }
@@ -17,6 +17,12 @@ class NumberValue implements IValue
     public String getString()
     {
         return String.valueOf(value);
+    }
+
+    @Override
+    public boolean containsReference(Indexes indexes)
+    {
+        return false;
     }
 
     private final double value;

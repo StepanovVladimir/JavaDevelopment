@@ -21,13 +21,13 @@ public class Spreadsheet
     public void setReference(String cellName, String reference) throws IOException
     {
         Indexes indexes = getIndexes(cellName);
-        matrix[indexes.row][indexes.column] = new ReferenceValue(reference, matrix);
+        matrix[indexes.row][indexes.column] = new ReferenceValue(reference, matrix, indexes);
     }
 
     public void setFormula(String cellName, String formula) throws IOException
     {
         Indexes indexes = getIndexes(cellName);
-        matrix[indexes.row][indexes.column] = new FormulaValue(formula, matrix);
+        matrix[indexes.row][indexes.column] = new FormulaValue(formula, matrix, indexes);
     }
 
     public void print()

@@ -4,32 +4,48 @@ import java.io.IOException;
 
 class ReferenceValue implements IValue
 {
-    public ReferenceValue(String reference, IValue[][] matrix) throws IOException
+    ReferenceValue(String reference, IValue[][] matrix, Indexes source) throws IOException
     {
-        indexes = Spreadsheet.getIndexes(reference);
+        this.reference = Spreadsheet.getIndexes(reference);
         this.matrix = matrix;
+
+        if (containsReference(source))
+        {
+            throw new IllegalArgumentException("There is a circular reference");
+        }
     }
 
     @Override
     public Double getNumber()
     {
-        if (matrix[indexes.row][indexes.column] == null)
+        if (matrix[reference.row][reference.column] == null)
         {
             return null;
         }
-        return matrix[indexes.row][indexes.column].getNumber();
+        return matrix[reference.row][reference.column].getNumber();
     }
 
     @Override
     public String getString()
     {
-        if (matrix[indexes.row][indexes.column] == null)
+        if (matrix[reference.row][reference.column] == null)
         {
             return null;
         }
-        return matrix[indexes.row][indexes.column].getString();
+        return matrix[reference.row][reference.column].getString();
     }
 
-    private final Indexes indexes;
+    @Override
+    public boolean containsReference(Indexes indexes)
+    {
+        if (reference.equals(indexes))
+        {
+            return true;
+        }
+        IValue value = matrix[reference.row][reference.column];
+        return value != null && value.containsReference(indexes);
+    }
+
+    private final Indexes reference;
     private IValue[][] matrix;
 }

@@ -2,7 +2,7 @@ package com.company.spreadsheet;
 
 class StringValue implements IValue
 {
-    public StringValue(String value)
+    StringValue(String value)
     {
         this.value = value;
     }
@@ -17,6 +17,12 @@ class StringValue implements IValue
     public String getString()
     {
         return value;
+    }
+
+    @Override
+    public boolean containsReference(Indexes indexes)
+    {
+        return false;
     }
 
     private final String value;

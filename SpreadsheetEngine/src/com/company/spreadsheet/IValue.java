@@ -4,4 +4,5 @@ interface IValue
 {
     Double getNumber();
     String getString();
+    boolean containsReference(Indexes indexes);
 }

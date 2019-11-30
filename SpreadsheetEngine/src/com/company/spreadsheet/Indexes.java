@@ -8,6 +8,13 @@ class Indexes
         this.row = row;
     }
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        Indexes indexes = (Indexes)obj;
+        return column == indexes.column && row == indexes.row;
+    }
+
     int column;
     int row;
 }

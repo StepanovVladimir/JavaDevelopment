@@ -1,7 +1,5 @@
 package com.company.spreadsheet;
 
-import sun.nio.ch.IOStatus;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,14 +7,19 @@ import java.io.InputStreamReader;
 
 class FormulaValue implements IValue
 {
-    FormulaValue(String formula, IValue[][] matrix) throws IOException
+    FormulaValue(String formula, IValue[][] matrix, Indexes source) throws IOException
     {
         InputStream stream = new ByteArrayInputStream(formula.getBytes());
         InputStreamReader reader = new InputStreamReader(stream);
 
         operation = readOperation(reader);
-        first = readFormulaMember(reader, matrix);
-        second = readFormulaMember(reader, matrix);
+        first = readFormulaMember(reader, matrix, source);
+        second = readFormulaMember(reader, matrix, source);
+
+        if (containsReference(source))
+        {
+            throw new IllegalArgumentException("There is a circular reference");
+        }
     }
 
     @Override
@@ -44,8 +47,8 @@ class FormulaValue implements IValue
 
         try
         {
-            Double num1 = Double.parseDouble(str1);
-            Double num2 = Double.parseDouble(str2);
+            double num1 = Double.parseDouble(str1);
+            double num2 = Double.parseDouble(str2);
             return String.valueOf(calculateFormula(operation, num1, num2));
         }
         catch (NumberFormatException exc)
@@ -56,6 +59,12 @@ class FormulaValue implements IValue
             }
             return str1 + str2;
         }
+    }
+
+    @Override
+    public boolean containsReference(Indexes indexes)
+    {
+        return first.containsReference(indexes) || second.containsReference(indexes);
     }
 
     private Operation operation;
@@ -84,20 +93,20 @@ class FormulaValue implements IValue
         }
     }
 
-    private static IValue readFormulaMember(InputStreamReader reader, IValue[][] matrix) throws IOException
+    private static IValue readFormulaMember(InputStreamReader reader, IValue[][] matrix, Indexes source) throws IOException
     {
         char ch = readFirstChar(reader);
         if (ch == '(')
         {
-            return readSubFormula(reader, matrix);
+            return readSubFormula(reader, matrix, source);
         }
         else
         {
-            return readSimpleMember(ch, reader, matrix);
+            return readSimpleMember(ch, reader, matrix, source);
         }
     }
 
-    private static FormulaValue readSubFormula(InputStreamReader reader, IValue[][] matrix) throws IOException
+    private static FormulaValue readSubFormula(InputStreamReader reader, IValue[][] matrix, Indexes source) throws IOException
     {
         int count = 1;
         StringBuilder builder = new StringBuilder();
@@ -118,10 +127,10 @@ class FormulaValue implements IValue
             }
         }
         String str = builder.toString();
-        return new FormulaValue(str, matrix);
+        return new FormulaValue(str, matrix, source);
     }
 
-    private static IValue readSimpleMember(char ch, InputStreamReader reader, IValue[][] matrix) throws IOException
+    private static IValue readSimpleMember(char ch, InputStreamReader reader, IValue[][] matrix, Indexes source) throws IOException
     {
         StringBuilder builder = new StringBuilder();
         builder.append(ch);
@@ -143,7 +152,7 @@ class FormulaValue implements IValue
         }
         catch (NumberFormatException exc)
         {
-            return new ReferenceValue(str, matrix);
+            return new ReferenceValue(str, matrix, source);
         }
     }
 

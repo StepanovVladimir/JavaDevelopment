@@ -60,6 +60,10 @@ public class Main {
             {
                 System.out.println(exc.getMessage());
             }
+            catch (IllegalArgumentException exc)
+            {
+                System.out.println(exc.getMessage());
+            }
         }
     }
 }
