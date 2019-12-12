@@ -1,6 +1,6 @@
 package com.company.spreadsheet;
 
-class NumberValue implements IValue
+class NumberValue implements Value
 {
     NumberValue(double value)
     {

@@ -1,6 +1,6 @@
 package com.company.spreadsheet;
 
-class StringValue implements IValue
+class StringValue implements Value
 {
     StringValue(String value)
     {

@@ -35,32 +35,39 @@ public class Spreadsheet
         System.out.printf("%-5s", "");
         for (int i = 0; i < MATRIX_SIZE; ++i)
         {
-            System.out.printf("%-10s", indexToCellName(i));
+            System.out.printf("%-25s", indexToCellName(i));
         }
         System.out.println();
         for (int i = 0; i < MATRIX_SIZE; ++i)
         {
             System.out.printf("%-5s", i + 1);
-            for (int j = 0; j < 30; ++j)
+            for (int j = 0; j < MATRIX_SIZE; ++j)
             {
-                IValue cell = matrix[i][j];
-                if (cell != null && cell.getString() != null)
+                Value cell = matrix[i][j];
+                try
                 {
-                    System.out.printf("%-10s", cell.getString());
+                    if (cell != null && cell.getString() != null)
+                    {
+                        System.out.printf("%-25s", cell.getString().substring(0, 24));
+                    }
+                    else
+                    {
+                        System.out.printf("%-25s", "");
+                    }
                 }
-                else
+                catch (RuntimeException exc)
                 {
-                    System.out.printf("%-10s", "");
+                    System.out.printf("%-25s", exc.getMessage());
                 }
             }
             System.out.println();
         }
     }
 
-    private static final int MATRIX_SIZE = 30;
+    private static final int MATRIX_SIZE = 15;
     private static final String INVALID_NAME_OF_CELL = "Invalid name of cell";
 
-    private IValue[][] matrix = new IValue[MATRIX_SIZE][MATRIX_SIZE];
+    private Value[][] matrix = new Value[MATRIX_SIZE][MATRIX_SIZE];
 
     static Indexes getIndexes(String cellName) throws IOException
     {

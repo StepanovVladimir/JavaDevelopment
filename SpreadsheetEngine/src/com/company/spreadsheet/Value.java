@@ -1,6 +1,6 @@
 package com.company.spreadsheet;
 
-interface IValue
+interface Value
 {
     Double getNumber();
     String getString();

@@ -2,9 +2,9 @@ package com.company.spreadsheet;
 
 import java.io.IOException;
 
-class ReferenceValue implements IValue
+class ReferenceValue implements Value
 {
-    ReferenceValue(String reference, IValue[][] matrix, Indexes source) throws IOException
+    ReferenceValue(String reference, Value[][] matrix, Indexes source) throws IOException
     {
         this.reference = Spreadsheet.getIndexes(reference);
         this.matrix = matrix;
@@ -42,10 +42,10 @@ class ReferenceValue implements IValue
         {
             return true;
         }
-        IValue value = matrix[reference.row][reference.column];
+        Value value = matrix[reference.row][reference.column];
         return value != null && value.containsReference(indexes);
     }
 
     private final Indexes reference;
-    private IValue[][] matrix;
+    private Value[][] matrix;
 }

@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-class FormulaValue implements IValue
+class FormulaValue implements Value
 {
-    FormulaValue(String formula, IValue[][] matrix, Indexes source) throws IOException
+    FormulaValue(String formula, Value[][] matrix, Indexes source) throws IOException
     {
         InputStream stream = new ByteArrayInputStream(formula.getBytes());
         InputStreamReader reader = new InputStreamReader(stream);
@@ -55,7 +55,7 @@ class FormulaValue implements IValue
         {
             if (operation != Operation.Add)
             {
-                return null;
+                throw new RuntimeException("Invalid string operation");
             }
             return str1 + str2;
         }
@@ -68,8 +68,8 @@ class FormulaValue implements IValue
     }
 
     private Operation operation;
-    private IValue first;
-    private IValue second;
+    private Value first;
+    private Value second;
 
     private static Operation readOperation(InputStreamReader reader) throws IOException
     {
@@ -93,7 +93,7 @@ class FormulaValue implements IValue
         }
     }
 
-    private static IValue readFormulaMember(InputStreamReader reader, IValue[][] matrix, Indexes source) throws IOException
+    private static Value readFormulaMember(InputStreamReader reader, Value[][] matrix, Indexes source) throws IOException
     {
         char ch = readFirstChar(reader);
         if (ch == '(')
@@ -106,7 +106,7 @@ class FormulaValue implements IValue
         }
     }
 
-    private static FormulaValue readSubFormula(InputStreamReader reader, IValue[][] matrix, Indexes source) throws IOException
+    private static FormulaValue readSubFormula(InputStreamReader reader, Value[][] matrix, Indexes source) throws IOException
     {
         int count = 1;
         StringBuilder builder = new StringBuilder();
@@ -130,7 +130,7 @@ class FormulaValue implements IValue
         return new FormulaValue(str, matrix, source);
     }
 
-    private static IValue readSimpleMember(char ch, InputStreamReader reader, IValue[][] matrix, Indexes source) throws IOException
+    private static Value readSimpleMember(char ch, InputStreamReader reader, Value[][] matrix, Indexes source) throws IOException
     {
         StringBuilder builder = new StringBuilder();
         builder.append(ch);
