@@ -1,0 +1,2 @@
+resources/walk
+resources/walk/1.txt

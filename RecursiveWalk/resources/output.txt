@@ -1,0 +1,3 @@
+5eab4645 resources\walk\1.txt
+189a0a5d resources\walk\subdir\text.txt
+5eab4645 resources\walk\1.txt
