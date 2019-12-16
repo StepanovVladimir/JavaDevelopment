@@ -56,11 +56,7 @@ public class Main
                         System.out.println("Nonexistent command");
                 }
             }
-            catch (IOException exc)
-            {
-                System.out.println(exc.getMessage());
-            }
-            catch (IllegalArgumentException exc)
+            catch (IOException | IllegalArgumentException exc)
             {
                 System.out.println(exc.getMessage());
             }

@@ -48,7 +48,8 @@ public class Spreadsheet
                 {
                     if (cell != null && cell.getString() != null)
                     {
-                        System.out.printf("%-25s", cell.getString().substring(0, 24));
+                        String str = cell.getString();
+                        System.out.printf("%-25s", str.substring(0, Math.min(str.length(), 24)));
                     }
                     else
                     {

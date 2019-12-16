@@ -20,6 +20,8 @@ class FormulaValue implements Value
         {
             throw new IllegalArgumentException("There is a circular reference");
         }
+
+        getString();
     }
 
     @Override
@@ -55,7 +57,7 @@ class FormulaValue implements Value
         {
             if (operation != Operation.Add)
             {
-                throw new RuntimeException("Invalid string operation");
+                throw new IllegalArgumentException("Invalid string operation");
             }
             return str1 + str2;
         }
