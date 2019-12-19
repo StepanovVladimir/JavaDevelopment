@@ -27,17 +27,10 @@ class OrderStats {
      * @return list, containing orders paid with provided card type
      */
     static List<Order> ordersForCardType(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
-        List<Order> orders = new ArrayList<>();
-
-        customers.forEach(
-                customer -> orders.addAll(
-                        customer.getOrders().stream().filter(
-                                order -> order.getPaymentInfo().getCardType() == cardType
-                        ).collect(Collectors.toList())
-                )
-        );
-
-        return orders;
+        return customers
+                .flatMap(customer -> customer.getOrders().stream()
+                        .filter(order -> order.getPaymentInfo().getCardType() == cardType))
+                .collect(Collectors.toList());
     }
 
     /**
