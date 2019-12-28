@@ -4,7 +4,7 @@ public class Discount
 {
     public Discount(int size)
     {
-        if (size < 0 || size > 90)
+        if (size < 0 || size > 100)
         {
             throw new IllegalArgumentException("There can be no discount less than zero or more than 90");
         }

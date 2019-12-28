@@ -36,11 +36,6 @@ public class Product
         this.count -= count;
     }
 
-    public int getTotalPrice()
-    {
-        return info.getPrice() * count;
-    }
-
     public void log()
     {
         info.log();
