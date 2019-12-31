@@ -8,7 +8,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CashDeskTests
+public class CashDeskTest
 {
     @BeforeEach
     public void init()

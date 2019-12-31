@@ -18,7 +18,7 @@ public class Main
         runSupermarket(supermarket, random, time);
     }
 
-    private static void initProducts(Supermarket supermarket, Random random, Date time)
+    public static void initProducts(Supermarket supermarket, Random random, Date time)
     {
         ArrayList<Product> products = supermarket.getProducts();
         products.add(new Product(new ProductInfo("milk", ProductInfo.Measurement.Units, 50, new Discount(20)), random.nextInt(100)));
@@ -30,7 +30,7 @@ public class Main
         supermarket.logProducts(time);
     }
 
-    private static void runSupermarket(Supermarket supermarket, Random random, Date time)
+    public static void runSupermarket(Supermarket supermarket, Random random, Date time)
     {
         addTime(time, random.nextInt(HOUR));
         supermarket.open(time);
@@ -70,7 +70,7 @@ public class Main
         supermarket.close(time);
     }
 
-    private static void addCustomerToSupermarket(Supermarket supermarket, Random random, Date time)
+    public static void addCustomerToSupermarket(Supermarket supermarket, Random random, Date time)
     {
         addTime(time, random.nextInt(HOUR));
         ArrayList<Product> products = supermarket.getProducts();
@@ -84,7 +84,7 @@ public class Main
         supermarket.addCustomer(customer, time);
     }
 
-    private static void putProductInBasket(Supermarket supermarket, Random random, Date time)
+    public static void putProductInBasket(Supermarket supermarket, Random random, Date time)
     {
         try
         {
@@ -106,7 +106,7 @@ public class Main
         }
     }
 
-    private static void addCustomerToCashDesk(Supermarket supermarket, Random random, Date time)
+    public static void addCustomerToCashDesk(Supermarket supermarket, Random random, Date time)
     {
         if (supermarket.getCustomersCount() > 0)
         {
@@ -118,7 +118,7 @@ public class Main
         }
     }
 
-    private static void serveCustomerAtCashDesk(Supermarket supermarket, Random random, Date time)
+    public static void serveCustomerAtCashDesk(Supermarket supermarket, Random random, Date time)
     {
         CashDesk cashDesk = supermarket.getCashDesk();
         if (cashDesk.getCustomersCount() > 0)
@@ -130,7 +130,7 @@ public class Main
         }
     }
 
-    private static void addTime(Date time, int adding)
+    public static void addTime(Date time, int adding)
     {
         time.setTime(time.getTime() + adding);
     }

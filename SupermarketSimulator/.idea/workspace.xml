@@ -6,11 +6,15 @@
       <change beforePath="$PROJECT_DIR$/../RecursiveWalk/resources/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursiveWalk/resources/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../RecursiveWalk/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RecursiveWalk/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupermarketSimulator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SupermarketSimulator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Discount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/BillTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/BillTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/CashDeskTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/CashDeskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/CustomerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/CustomerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/DiscountTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/DiscountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/ProductInfoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/ProductInfoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/ProductTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/ProductTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/company/SupermarketTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/company/SupermarketTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="160" />
+    <option name="myElementSize" value="165" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -71,8 +75,8 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
-  <component name="RunManager" selected="JUnit.com.company in SupermarketSimulator">
-    <configuration name="SupermarketTests.addCustomerWhenSupermarketIsOpened" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MainTest.addCustomerToSupermarketTest">
+    <configuration name="MainTest.addCustomerToSupermarketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketSimulator" />
       <extension name="coverage">
         <pattern>
@@ -81,14 +85,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.company" />
-      <option name="MAIN_CLASS_NAME" value="com.company.SupermarketTests" />
-      <option name="METHOD_NAME" value="addCustomerWhenSupermarketIsOpened" />
+      <option name="MAIN_CLASS_NAME" value="com.company.MainTest" />
+      <option name="METHOD_NAME" value="addCustomerToSupermarketTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SupermarketTests.closeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainTest.initProductsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketSimulator" />
       <extension name="coverage">
         <pattern>
@@ -97,14 +101,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.company" />
-      <option name="MAIN_CLASS_NAME" value="com.company.SupermarketTests" />
+      <option name="MAIN_CLASS_NAME" value="com.company.MainTest" />
+      <option name="METHOD_NAME" value="initProductsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SupermarketTest.closeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SupermarketSimulator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company" />
+      <option name="MAIN_CLASS_NAME" value="com.company.SupermarketTest" />
       <option name="METHOD_NAME" value="closeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SupermarketTests.closeWhenIsClosed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SupermarketTest.closeWhenSupermarketNotEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SupermarketSimulator" />
       <extension name="coverage">
         <pattern>
@@ -113,23 +133,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.company" />
-      <option name="MAIN_CLASS_NAME" value="com.company.SupermarketTests" />
-      <option name="METHOD_NAME" value="closeWhenIsClosed" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SupermarketTests.closeWhenSupermarketNotEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SupermarketSimulator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.company" />
-      <option name="MAIN_CLASS_NAME" value="com.company.SupermarketTests" />
+      <option name="MAIN_CLASS_NAME" value="com.company.SupermarketTest" />
       <option name="METHOD_NAME" value="closeWhenSupermarketNotEmpty" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -152,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainTest.addCustomerToSupermarketTest" />
+        <item itemvalue="JUnit.MainTest.initProductsTest" />
         <item itemvalue="JUnit.com.company in SupermarketSimulator" />
-        <item itemvalue="JUnit.SupermarketTests.closeTest" />
-        <item itemvalue="JUnit.SupermarketTests.closeWhenSupermarketNotEmpty" />
-        <item itemvalue="JUnit.SupermarketTests.closeWhenIsClosed" />
-        <item itemvalue="JUnit.SupermarketTests.addCustomerWhenSupermarketIsOpened" />
+        <item itemvalue="JUnit.SupermarketTest.closeTest" />
+        <item itemvalue="JUnit.SupermarketTest.closeWhenSupermarketNotEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -210,26 +214,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1577290742580" />
-    <state x="243" y="170" key="FileChooserDialogImpl" timestamp="1577525444778">
+    <state x="243" y="170" key="FileChooserDialogImpl" timestamp="1577538276171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="243" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577525444778" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1577523036333">
+    <state x="243" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577538276171" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1577787347697">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577523036333" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1577523036333">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577787347697" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1577787347697">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577523036333" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1577523036333">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577787347697" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1577787347697">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577523036333" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1577523036333">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577787347697" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1577787347697">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577523036333" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577787347697" />
     <state width="864" height="261" key="GridCell.Tab.1.bottom" timestamp="1577292038147">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -259,13 +263,19 @@
     <SUITE FILE_PATH="coverage/SupermarketSimulator$CustomerTests.ic" NAME="CustomerTests Coverage Results" MODIFIED="1577517153192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.company.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/SupermarketSimulator$MainTest_initProductsTest.ic" NAME="MainTest.initProductsTest Coverage Results" MODIFIED="1577786965762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.company.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SupermarketSimulator$ProductTests.ic" NAME="ProductTests Coverage Results" MODIFIED="1577433077185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.company.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SupermarketSimulator$MainTest_addCustomerToSupermarketTest.ic" NAME="MainTest.addCustomerToSupermarketTest Coverage Results" MODIFIED="1577787316200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.company.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SupermarketSimulator$BillTests.ic" NAME="BillTests Coverage Results" MODIFIED="1577344479940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.company.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SupermarketSimulator$com_company_in_SupermarketSimulator.ic" NAME="com.company in SupermarketSimulator Coverage Results" MODIFIED="1577522832709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SupermarketSimulator$com_company_in_SupermarketSimulator.ic" NAME="com.company in SupermarketSimulator Coverage Results" MODIFIED="1577786360643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.company.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SupermarketSimulator$Main.ic" NAME="Main Coverage Results" MODIFIED="1577291805372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

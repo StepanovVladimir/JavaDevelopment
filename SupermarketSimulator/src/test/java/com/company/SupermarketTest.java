@@ -9,7 +9,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class SupermarketTests
+public class SupermarketTest
 {
     @BeforeEach
     public void init()

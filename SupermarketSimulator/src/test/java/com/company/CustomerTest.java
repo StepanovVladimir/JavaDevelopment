@@ -8,7 +8,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CustomerTests
+public class CustomerTest
 {
     @BeforeEach
     public void init()
