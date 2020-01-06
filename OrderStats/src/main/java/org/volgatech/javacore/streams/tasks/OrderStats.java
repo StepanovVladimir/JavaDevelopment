@@ -43,22 +43,8 @@ class OrderStats {
      * @return map, where order size values mapped to lists of orders
      */
     static Map<Integer, List<Order>> orderSizes(final Stream<Order> orders) {
-        Map<Integer, List<Order>> orderSizes = new TreeMap<>();
-
-        orders.forEach(order -> {
-            int size = order.getOrderItems().stream().mapToInt(OrderItem::getQuantity).sum();
-            List<Order> orderList = orderSizes.get(size);
-
-            if (orderList == null) {
-                orderList = new ArrayList<>();
-                orderList.add(order);
-                orderSizes.put(size, orderList);
-            } else {
-                orderList.add(order);
-            }
-        });
-
-        return orderSizes;
+        return orders.collect(Collectors.groupingBy(order
+                -> order.getOrderItems().stream().mapToInt(OrderItem::getQuantity).sum()));
     }
 
     /**
@@ -123,34 +109,30 @@ class OrderStats {
      * @return java.util.Optional containing the name of the most popular country
      */
     static Optional<String> mostPopularCountry(final Stream<Customer> customers) {
-        Map<String, Integer> countriesPopularity = new TreeMap<>();
-
-        customers.forEach(customer -> {
-            String country = customer.getAddress().getCountry();
-
-            if (!countriesPopularity.containsKey(country)) {
-                countriesPopularity.put(country, 1);
-            } else {
-                int i = countriesPopularity.get(country);
-                countriesPopularity.put(country, i + 1);
-            }
-        });
+        Map<String, List<Customer>> countriesPopularity = customers.collect(Collectors.groupingBy(customer
+                -> customer.getAddress().getCountry()));
 
         if (countriesPopularity.isEmpty()) {
             return Optional.empty();
         }
 
-        String mostPopularCountry = "";
-        int maxPopularity = 0;
-        for (Map.Entry<String, Integer> countryPopularity : countriesPopularity.entrySet()) {
-            String country = countryPopularity.getKey();
-            int popularity = countryPopularity.getValue();
+        String mostPopularCountry = countriesPopularity.entrySet().stream().max((country1, country2) -> {
+            Integer popularity1 = country1.getValue().size();
+            Integer popularity2 = country2.getValue().size();
+            Integer length1 = country1.getKey().length();
+            Integer length2 = country2.getKey().length();
 
-            if (popularity > maxPopularity || popularity == maxPopularity && country.length() < mostPopularCountry.length()) {
-                mostPopularCountry = country;
-                maxPopularity = popularity;
+            int result = popularity1.compareTo(popularity2);
+
+            if (result != 0)
+            {
+                return result;
             }
-        }
+
+            result = length2.compareTo(length1);
+
+            return result;
+        }).get().getKey();
 
         return Optional.of(mostPopularCountry);
     }
